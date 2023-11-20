@@ -49,7 +49,7 @@ router.post("/login",(req,res)=>{
     connection.query(sql,async function (error, results,fiends) {
         if(error){
             res.status(400)
-            res.send("error! Call some ambulance idk")
+            res.send("Неопределенная ошибка")
             throw error
         }
         if(await results[0] === undefined){
@@ -94,7 +94,7 @@ router.delete("/worker/:id",(req,res)=>{
         res.json(null);
     });
 })
-
+    
 router.post("/worker/add",(req,res)=>{
     const {lastName,firstName,middleName,birthday} = req.body
     const sql = "INSERT INTO `workers`( `lastName`, `firstName`, `middleName`, `birthday`, `image`) VALUES ('"+lastName+"','"+firstName+"','"+middleName+"','"+birthday+"','')"
